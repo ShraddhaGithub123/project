@@ -39,7 +39,7 @@ jobs:
       run: |
         minikube delete
         minikube start --driver=docker
-        minikube service example
+        minikube service example -n default
         minikube service example --url
         echo "------------------opening the service------------------"
         curl $(minikube service example --url)   
