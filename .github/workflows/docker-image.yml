@@ -39,6 +39,7 @@ jobs:
       run: |
         minikube delete
         minikube start --driver=docker
+        kubectl get svc -A
         minikube service example -n default
         minikube service example --url
         echo "------------------opening the service------------------"
