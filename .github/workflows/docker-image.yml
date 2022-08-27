@@ -39,6 +39,7 @@ jobs:
       run: |
         minikube delete
         minikube start --driver=docker
+        kubectl apply -f ddeploy-to-minikube.yaml
         kubectl get svc -A
         minikube service example -n default
         minikube service example --url
