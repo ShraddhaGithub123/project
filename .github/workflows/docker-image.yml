@@ -39,7 +39,6 @@ jobs:
       run: |
         minikube delete
         minikube start --driver=docker
-        minikube service list
         minikube service example
         minikube service example --url
         echo "------------------opening the service------------------"
