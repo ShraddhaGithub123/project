@@ -18,7 +18,7 @@ jobs:
     
     - name: Build the Docker image
       working-directory: guestbook-go
-      run: docker build . --file Dockerfile --tag guestbook-go:$(date +%s)
+      run: docker build . --file Dockerfile --tag guestbook-go:latest
       
     - name: Login to DockerHub
       uses: docker/login-action@v2
@@ -26,9 +26,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
-    - name: Build and push
-      uses: docker/build-push-action@v3
-      with:
-        working-directory: guestbook-go
-        push: true
-        tags: shraddhagaikwad52/examples:latest
+    - name: Docker Push
+      run: docker push shraddhagaikwad52/examples:latest
