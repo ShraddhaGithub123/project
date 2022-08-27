@@ -37,6 +37,8 @@ jobs:
         kubectl apply -f ddeploy-to-minikube.yaml
     - name: Test service URLs
       run: |
+        minikube delete
+        minikube start --driver=docker
         minikube service list
         minikube service example
         minikube service example --url
