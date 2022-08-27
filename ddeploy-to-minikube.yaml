@@ -31,9 +31,9 @@ kind: Service
 metadata:
     name: example
 spec:
-    type: NodePort
+    type: LoadBalancer
     selector:
         app: example
     ports:
-        - port: 32339
-          targetPort: 32339
+        - port: 8080
+          targetPort: 8080
