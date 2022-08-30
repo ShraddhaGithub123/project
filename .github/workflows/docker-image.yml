@@ -13,6 +13,7 @@ env:
 jobs:
   push-image-to-docker-hub:  # job name
     runs-on: ubuntu-latest  # runner name : (ubuntu latest version) 
+    if: "!contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')"
     steps:
     - name: Last Commit Message Text Finderr
       uses: dlouisenz/last-commit-message-text-finder-action@v1.5
