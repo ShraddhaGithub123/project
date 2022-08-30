@@ -13,10 +13,10 @@ jobs:
   push-image-to-docker-hub:  # job name
     runs-on: ubuntu-latest  # runner name : (ubuntu latest version) 
     steps:
-    - name: Run smoke tests
-      if: contains(github.event.head_commit.message, 'BUILD_CONTAINER_IMAGE')
-      run: |
-        echo 'Cheking commit message!'
+    - name: Last Commit Message Text Finder
+      uses: dlouisenz/last-commit-message-text-finder-action@v1.5
+      with:
+        textToFind: 'BUILD_CONTAINER_IMAGE'
     - uses: actions/checkout@v2 # first action : checkout source code
     - name: docker login
       run: | # log into docker hub account
