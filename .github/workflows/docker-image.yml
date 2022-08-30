@@ -1,10 +1,9 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches:
+    - master
 env:
   DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
   DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
